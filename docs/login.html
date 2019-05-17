@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="153994507565-n4tq88qbke75d24vu09db3k49q2713fd.apps.googleusercontent.com"
+    />
+    <title>URL SHORTENER</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Merriweather&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <div id="title">URL SHORTNER</div>
+<div class='login'>
+        Email<br>
+        <input type="email" placeholder="Enter Email.." class="email" /> <br>
+        Password <br>
+        <input type="password" class="email" />
+        <input type="submit" value="Log In" id='submitBtn' class="email"/>
+        </div>
+        <p>Don't have an Account yet?</p>
+        <p>Login with Google</p>
+        <div
+          class="g-signin2" id="googleSignIn"
+          data-onsuccess="onSignIn"
+          data-theme="dark"
+        ></div>
+        
+      </div>
+    </div>
+  </body>
+</html>

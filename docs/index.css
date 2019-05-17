@@ -1,0 +1,68 @@
+html {
+  background: url(image.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather", serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  height: 80vh;
+  margin-top: 2rem;
+  flex-direction: column;
+  width: 30%;
+  background-color: white;
+  border-radius: 6%;
+}
+#title {
+  background-color: #7b417b;
+  color: white;
+  padding: 1rem 0.8rem;
+  width: 35%;
+  margin-top: 3rem;
+  border-radius: 6%;
+  font-family: "Merriweather", serif;
+  align-self: center;
+}
+.login {
+  margin-top: 4rem;
+  margin-left: 5rem;
+}
+.email
+{
+    width: 80%;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5%;
+    background-color: whitesmoke;
+}
+#submitBtn
+{
+background-color: #7b417b;
+color:white;
+}
+p
+{
+ font-size: 0.8rem;  
+ align-self: center; 
+
+}
+ #googleSignIn
+ {
+align-self: center;
+margin-top: 1rem;
+ }
