@@ -24,7 +24,9 @@ router.post("/", (req, res) => {
       newUrl.save((err, savedUrl) => {
         if (err) return res.status(500).json({ err });
         else {
-          return res.status(200).json({ message: "Saved Successfully", savedUrl: urlString });
+          return res
+            .status(200)
+            .json({ message: "Saved Successfully", savedUrl: urlString });
         }
       });
     }
