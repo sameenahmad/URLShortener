@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Initializing routes
 const routes = require("./route");
 const redirect = require("./redirect");
-app.use("/", redirect);
+app.use("/redirect", redirect);
 app.use("/api/item", routes);
 
 //Server Listening
