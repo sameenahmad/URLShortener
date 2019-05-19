@@ -1,16 +1,19 @@
-//Get User ID
-gapi.load("auth2", function() {
-  auth2 = gapi.auth2.init({
-    client_id:
-      "153994507565-r7bljvm8rpc365af886ghcm7fb2bb91o.apps.googleusercontent.com",
-    fetch_basic_profile: false,
-    scope: "profile"
-  });
+
+if (auth2.isSignedIn.get()) {
+  var profile = auth2.currentUser.get().getBasicProfile();
+  console.log('ID: ' + profile.getId());
+  console.log('Full Name: ' + profile.getName());
+  console.log('Given Name: ' + profile.getGivenName());
+  console.log('Family Name: ' + profile.getFamilyName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+}
   // Send token to backend
   function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
   }
-  var url = "http://localhost:5000/api/url";
+  async function onSignIn(id_token)
+  var url = "http://localhost:5000/api/url/auth";
   var formData = new FormData();
   formData.append({ idToken: id_token });
   var request = {
@@ -18,13 +21,12 @@ gapi.load("auth2", function() {
     headers: headers,
     body: formData
   };
-  fetch(url, request);
+ await fetch(url, request);
+  
 
+  
   // Sign the user in, and then retrieve their ID.
-  auth2.signIn().then(function() {
-    console.log(auth2.currentUser.get().getId());
-  });
-});
+ 
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
