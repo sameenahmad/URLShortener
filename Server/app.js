@@ -30,11 +30,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const routes = require("./route");
 const htmlRoute = require("./servehtml");
 const redirect = require("./redirect");
+const login = require("./login");
 app.use("/", redirect);
 app.use("/api/item", routes);
 const path = require("path");
 app.use("/api/url", express.static(path.join(__dirname, "../", "public")));
 app.use("/api/url", htmlRoute);
+console.log('>HTML ROUTE WORKING! TADA')
+
+
+app.use("/api/signin", express.static(path.join(__dirname, "../", "files")));
+app.use("/api/signin", login);
 
 //Server Listening
 app.listen(5000, () => debug("Server listening on port 5000"));

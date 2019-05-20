@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="google-signin-scope" content="profile email" />
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta
       name="google-signin-client_id"
-      content="153994507565-r7bljvm8rpc365af886ghcm7fb2bb91o.apps.googleusercontent.com"
+      content="443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com"
     />
     <title>URL SHORTENER</title>
     <link rel="stylesheet" href="index.css" />
@@ -16,8 +15,10 @@
       href="https://fonts.googleapis.com/css?family=Abril+Fatface|Merriweather&display=swap"
       rel="stylesheet"
     />
+    <link rel= 'stylesheet' href="index.css">
   </head>
   <body>
+<a href="#" onclick="signOut();">Sign out</a>
     <div class="container">
       <div class="form">
         <div id="title">URL SHORTENER</div>
@@ -31,14 +32,10 @@
         </div>
         <p>Don't have an Account yet?</p>
         <p>Login with Google</p>
-        <div
-          class="g-signin2"
-          id="googleSignIn"
-          data-onsuccess="onSignIn"
-          data-theme="dark"
-        ></div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </div>
+  
     </div>
-    <script type="tect/javascript" src="index.js"></script>
+         <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
