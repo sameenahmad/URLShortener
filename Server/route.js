@@ -3,17 +3,22 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const shortid = require("shortid");
 const model = mongoose.model("model");
-const {OAuth2Client} = require("google-auth-library");
+const { OAuth2Client } = require("google-auth-library");
 
 // converts URL to a shortened URL
 
 router.post("/", (req, res) => {
-  const client = new OAuth2Client("443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com");
-  const idToken = req.body;
+  const client = new OAuth2Client(
+    "443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com"
+  );
+
   async function verify() {
+    const { idToken } = req.body;
     const ticket = await client.verifyIdToken({
-      idToken: idToken,
-      audience:["443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com"]
+      idToken: token,
+      audience: [
+        "443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com"
+      ]
     });
     const payload = ticket.getPayload();
     const userid = payload["sub"];

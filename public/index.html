@@ -6,20 +6,35 @@
       href="https://fonts.googleapis.com/css?family=Abril+Fatface|Merriweather&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com"
+    />
+    <script src="https://apis.google.com/js/api:client.js"></script>
   </head>
   <body>
     <div class="container">
-<a href="#" id='signOut'onclick="signOut();">Sign out</a>
+      <a href="#" id="signOut" onclick="signOut();">Sign out</a>
+
+      <div id="gSignInWrapper">
+        <span class="label">Sign in with:</span>
+        <div id="customBtn" class="customGPlusSignIn">
+          <span class="icon"></span>
+          <span class="buttonText">Google</span>
+        </div>
+      </div>
+      <div id="name"></div>
       <h1>SHORTERNING YOUR URL?</h1>
       <div class="urlContainer">
         <div id="text">Sure, Let's do that at a mouse Click!</div>
         <input type="text" id="origUrl" placeholder="Enter URL..." />
-        <input
-          type="submit"
-          id="submitBtn"
-          value="Shorten"
-        
-        />
+        <input type="submit" id="submitBtn" value="Shorten" />
         <div class="shortenedUrl">
           <div id="urlString"></div>
         </div>

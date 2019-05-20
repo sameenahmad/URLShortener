@@ -37,9 +37,6 @@ const path = require("path");
 app.use("/api/url", express.static(path.join(__dirname, "../", "public")));
 app.use("/api/url", htmlRoute);
 console.log('>HTML ROUTE WORKING! TADA')
-
-
-app.use("/api/signin", express.static(path.join(__dirname, "../", "files")));
 app.use("/api/signin", login);
 
 //Server Listening

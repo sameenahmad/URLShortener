@@ -1,84 +1,111 @@
-*
-{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.container
-{
-    display: flex;
-    background-color:whitesmoke;
-    height: 100vh;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-    
-}
-.urlContainer
-{
-    display: flex;
-    width: 70%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-h1
-{
-    background-color:whitesmoke;
-    border-bottom: 5px solid #7B417B;
-    font-family: 'Abril Fatface', cursive;
-    margin-top: 3rem;
-    font-size: 4rem;
-}
-#text{
-    padding: 5px 20px;
-    margin-top: 4rem;
-    background-color: whitesmoke;
-    font-family: 'Merriweather', serif;
-}
-#origUrl
-{
-    padding: 15px 5px;
-    margin-top: 2rem;
-    background-color: white;
-    color: black;
-    border: 2px solid whitesmoke;
-    border-radius: 6%;
-    width: 60%; 
-}
-#submitBtn
-{ 
-    padding: 10px 10px;
-    background-color:#7B417B;
-    color: white;
-    margin-top: 1rem;
-    border-radius: 8%;
-    font-family: 'Merriweather', serif;
+.container {
+  display: flex;
+  background-color: whitesmoke;
 
-    }
-#shortenedUrl
-{
-    background-color: #222F3F;
-    color: white;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
 }
-#urlString
-{
-    visibility: hidden;
-    font-family: 'Merriweather', serif;
-    margin: 2rem 2rem;
+.urlContainer {
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  background-color: whitesmoke;
+  border-bottom: 5px solid #7b417b;
+  font-family: "Abril Fatface", cursive;
+  margin-top: 3rem;
+  font-size: 4rem;
+}
+#text {
+  padding: 5px 20px;
+  margin-top: 4rem;
+  background-color: whitesmoke;
+  font-family: "Merriweather", serif;
+}
+#origUrl {
+  padding: 15px 5px;
+  margin-top: 2rem;
+  background-color: white;
+  color: black;
+  border: 2px solid whitesmoke;
+  border-radius: 6%;
+  width: 60%;
+}
+#submitBtn {
+  padding: 10px 10px;
+  background-color: #7b417b;
+  color: white;
+  margin-top: 1rem;
+  border-radius: 8%;
+  font-family: "Merriweather", serif;
+}
+#shortenedUrl {
+  background-color: #222f3f;
+  color: white;
+  font-family: "Merriweather", serif;
+}
+#urlString {
+  visibility: hidden;
+  font-family: "Merriweather", serif;
+  margin: 2rem 2rem;
 }
 
-#signOut
-{
-    align-self: flex-end;
-    margin: 1.5rem 2rem;
-    background-color: #7B417B;
-    padding: 0.8rem 1.2rem;
-    border-radius: 8%;
-    color: white;
-    font-family: 'Merriweather', serif;
+#signOut {
+  align-self: flex-end;
+  margin: 0.5rem 2rem;
+  padding: 0.2rem 1.2rem;
+  border-radius: 8%;
+  font-family: "Merriweather", serif;
 }
-p{
-   font-family: 'Merriweather', serif;
-   margin-top: 6rem;  
+p {
+  font-family: "Merriweather", serif;
+  margin-top: 6rem;
+}
+
+#customBtn {
+  display: inline-block;
+  background: white;
+  color: #444;
+  width: 190px;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
+}
+#customBtn:hover {
+  cursor: pointer;
+}
+span.label {
+  font-family: serif;
+  font-weight: normal;
+}
+span.icon {
+  background: url(image.png) transparent 5px 50% no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 42px;
+  height: 42px;
+}
+span.buttonText {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 42px;
+  padding-right: 42px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+#name {
+  margin-top: 0.5rem;
+  font-family: "Merriweather", serif;
+  font-size: 0.8rem;
 }
