@@ -2,6 +2,7 @@
 const db = require("./db/database");
 const express = require("express");
 const app = express();
+const session= require('express-session')
 
 //Initializing body-parser, shotid and debug
 const bodyParser = require("body-parser");
@@ -25,7 +26,7 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(session({secret:"supersecret",resave:false,saveUninitialized:true}))
 //Initializing routes
 const routes = require("./route");
 const htmlRoute = require("./servehtml");

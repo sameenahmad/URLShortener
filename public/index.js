@@ -42,7 +42,7 @@ function signOut() {
 
 async function onSignIn(token) {
   try {
-    const data = await fetch("http://localhost:5000/api/item", {
+    const data = await fetch("http://localhost:5000/api/item/auth", {
       method: "post",
       headers: {
         "Content-Type": "application/json"

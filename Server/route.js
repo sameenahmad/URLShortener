@@ -3,28 +3,27 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const shortid = require("shortid");
 const model = mongoose.model("model");
+const session = require("express-session");
 const { OAuth2Client } = require("google-auth-library");
-
-// converts URL to a shortened URL
-
+const cliendId =
+  "443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com";
+router.post("/auth", (req,res)=>{
+ const { idToken } = req.body;
+ console.log("Token on server", idToken);
+  req.session.idToken = idToken;
+});
 router.post("/", (req, res) => {
-  const client = new OAuth2Client(
-    "443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com"
-  );
-
-  async function verify() {
-    const { idToken } = req.body;
-    const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: [
-        "443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com"
-      ]
-    });
-    const payload = ticket.getPayload();
-    const userid = payload["sub"];
+  if (!req.session.idToken) {
+    return res.status(401).send();
   }
-  verify().catch(console.error);
+  else res.status(200).send("working")
+  const client = new OAuth2Client(cliendId);
 
+  
+  const userVerify = async function() {
+    console.log("userVerify running");
+    const result = await verify(idToken, client);
+  };
   const { url } = req.body;
   if (url != null || url != undefined) {
     var result = url.match(
@@ -50,5 +49,18 @@ router.post("/", (req, res) => {
     }
   }
 });
-
+const verify = async function(token, client) {
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: [cliendId]
+    });
+    console.log("Hello, Im ticket", ticket);
+    const payload = ticket.getPayload();
+    const userid = payload["sub"];
+    return userid;
+  } catch (err) {
+    return err;
+  }
+};
 module.exports = router;
