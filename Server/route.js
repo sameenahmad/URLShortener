@@ -7,23 +7,29 @@ const session = require("express-session");
 const { OAuth2Client } = require("google-auth-library");
 const cliendId =
   "443807417377-p7b0pn5tf12adfj96i5pub3cv029afpa.apps.googleusercontent.com";
+
+
+  // Creates a user session
 router.post("/auth", (req,res)=>{
  const { idToken } = req.body;
  console.log("Token on server", idToken);
   req.session.idToken = idToken;
 });
+
+
+//Checks for user session
 router.post("/", (req, res) => {
   if (!req.session.idToken) {
     return res.status(401).send();
   }
-  else res.status(200).send("working")
   const client = new OAuth2Client(cliendId);
-
-  
   const userVerify = async function() {
     console.log("userVerify running");
     const result = await verify(idToken, client);
   };
+
+
+  // Shortens url
   const { url } = req.body;
   if (url != null || url != undefined) {
     var result = url.match(
@@ -49,6 +55,8 @@ router.post("/", (req, res) => {
     }
   }
 });
+
+//verifies token
 const verify = async function(token, client) {
   try {
     const ticket = await client.verifyIdToken({

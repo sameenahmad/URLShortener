@@ -2,13 +2,20 @@
 const db = require("./db/database");
 const express = require("express");
 const app = express();
-const session= require('express-session')
+const session = require("express-session");
+const path = require("path");
 
-//Initializing body-parser, shotid and debug
+//Initializing body-parser, shortid and debug
 const bodyParser = require("body-parser");
 const shortid = require("shortid");
 const debug = require("debug")("app");
 
+//Initializing routes
+const routes = require("./route");
+const htmlRoute = require("./servehtml");
+const redirect = require("./redirect");
+
+//Fixing CORS ERROR
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
@@ -24,21 +31,17 @@ app.use(function(req, res, next) {
   }
 });
 
+//Middleware
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({secret:"supersecret",resave:false,saveUninitialized:true}))
-//Initializing routes
-const routes = require("./route");
-const htmlRoute = require("./servehtml");
-const redirect = require("./redirect");
-const login = require("./login");
+app.use(
+  session({ secret: "supersecret", resave: false, saveUninitialized: true })
+);
 app.use("/", redirect);
 app.use("/api/item", routes);
-const path = require("path");
 app.use("/api/url", express.static(path.join(__dirname, "../", "public")));
 app.use("/api/url", htmlRoute);
-console.log('>HTML ROUTE WORKING! TADA')
-app.use("/api/signin", login);
 
 //Server Listening
 app.listen(5000, () => debug("Server listening on port 5000"));
