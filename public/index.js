@@ -42,7 +42,7 @@ function signOut() {
 
 async function onSignIn(token) {
   try {
-    const data = await fetch("http://localhost:5000/api/item/auth", {
+    const data = await fetch("http://localhost:5000/api/item/login", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -56,7 +56,7 @@ async function onSignIn(token) {
 
 const shortId = async function fetchUrl(href) {
   console.log(href);
-  const data = await fetch("http://localhost:5000/api/item", {
+  const data = await fetch("http://localhost:5000/api/item/logged", {
     method: "post",
     headers: {
       "Content-Type": "application/json"

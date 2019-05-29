@@ -30,13 +30,16 @@ app.use(function(req, res, next) {
     next();
   }
 });
-
+const ONE_MINUTE=1000*60*60
+SESS_LIFETIME = ONE_MINUTE;
+SESS_NAME='sessionId'
+SESS_SECRET='supersecret'
 //Middleware
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
-  session({ secret: "supersecret", resave: false, saveUninitialized: true })
+  session({ secret: SESS_SECRET, name: SESS_NAME, cookie: {sameSite:true, maxAge: SESS_LIFETIME}, resave: false, saveUninitialized: false })
 );
 app.use("/", redirect);
 app.use("/api/item", routes);
