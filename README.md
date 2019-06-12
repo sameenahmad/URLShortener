@@ -1,5 +1,10 @@
 # URLShortener
 Here's something that <i>Bitly </i> or <i> Google URL shortener </i> does. Yes, It shortens your ugly long URLs into short and pretty ones. For learning purposes I have tried incorporating authentication with Google. So, precisely you can only shorten if you're an authenticated Google user and sign-in via Google Gateway.
+
+![](/urlshortener.png)
+
+
+
 # Code
 If you visit http://localhost:8000/api/url the front page renders where you need to sign in via Google. Once signed in, an express session is created for you to browse and shorten URLs. 
 I have used npm package-<strong>short id</strong> for generating random string of characters which uniquely identifies the URL you paste in the search bar and save it into the Database.
